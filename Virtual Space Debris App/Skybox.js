@@ -2,7 +2,7 @@ let scene, camera, renderer;
 function init() {
   scene = new THREE.Scene;
 
-  camera = new THREE.PerspectiveCamera(55, window.innerWidth / window.innerHeight, 45, 30000);
+  camera = new THREE.PerspectiveCamera(55, window.innerWidth / window.innerHeight, 45, 30000000);
   camera.position.set(-90, -20, -90);
 
   renderer = new THREE.WebGLRenderer({ antialias: true });
@@ -41,7 +41,7 @@ function init() {
     materialArray[i].side = THREE.BackSide;
 
   // Add Skybox
-  let skyBoxGeo = new THREE.BoxGeometry(10000, 10000, 10000);
+  let skyBoxGeo = new THREE.BoxGeometry(10000000, 10000000, 10000000);
   let skyBox = new THREE.Mesh(skyBoxGeo, materialArray);
   scene.add(skyBox);
 
