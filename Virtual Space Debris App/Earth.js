@@ -7,14 +7,14 @@ var earthMesh = new THREE.Mesh( geometry, material )
 scene.add(earthMesh)
 
 // Add Earth Texture
-material.map    = THREE.ImageUtils.loadTexture('Virtual-Reality-Space/Earth/Noclouds.jpg')
+material.map    = THREE.ImageUtils.loadTexture('Earth/Noclouds.jpg')
 
 // Add Bump Map - Produces Height
 material.bumpMap    = THREE.ImageUtils.loadTexture('Earth/Bump.jpg')
 material.bumpScale = 10
 
 // Create Specularity of Sea
-material.specularMap    = THREE.ImageUtils.loadTexture('Virtual-Reality-Space/Earth/Specular.jpg')
+material.specularMap    = THREE.ImageUtils.loadTexture('Earth/Specular.jpg')
 material.specular  = new THREE.Color('grey')
 
 // Add Clouds
