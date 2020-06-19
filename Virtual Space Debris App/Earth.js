@@ -32,7 +32,7 @@ earthMesh.add(cloudMesh)
 function animate() 
 {
   requestAnimationFrame( animate );
-  earthMesh.rotation.y += 0.01;
+  earthMesh.rotation.y += 0.005;
   renderer.render( scene, camera );
 }
 animate( );
