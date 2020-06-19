@@ -21,12 +21,12 @@ function init() {
 
   // Create Array & Load Textures for Skybox
   let materialArray = []
-  let texture_ft = new THREE.TextureLoader().load("Virtual-Reality-Space/Space/Front.png");
-  let texture_bk = new THREE.TextureLoader().load("Virtual-Reality-Space/Space/Back.png");
-  let texture_up = new THREE.TextureLoader().load("Virtual-Reality-Space/Space/Top.png");
-  let texture_dn = new THREE.TextureLoader().load("Virtual-Reality-Space/Space/Bottom.png");
-  let texture_rt = new THREE.TextureLoader().load("Virtual-Reality-Space/Space/Right.png");
-  let texture_lf = new THREE.TextureLoader().load("Virtual-Reality-Space/Space/Left.png");
+  let texture_ft = new THREE.TextureLoader().load("/Space/Front.png");
+  let texture_bk = new THREE.TextureLoader().load("/Space/Back.png");
+  let texture_up = new THREE.TextureLoader().load("/Space/Top.png");
+  let texture_dn = new THREE.TextureLoader().load("/Space/Bottom.png");
+  let texture_rt = new THREE.TextureLoader().load("/Space/Right.png");
+  let texture_lf = new THREE.TextureLoader().load("/Space/Left.png");
 
   // Place Textures in Skybox Array
   materialArray.push(new THREE.MeshBasicMaterial({ map: texture_ft }));
