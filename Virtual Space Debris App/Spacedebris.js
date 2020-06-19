@@ -6,7 +6,7 @@ var material = new THREE.MeshBasicMaterial({color:0x00ff44});
 //initial offset so does not start in middle.
 var xOffset = -110;
 
-for(var i = 0; i < 1000; i++){
+for(var i = 0; i < 100; i++){
     for(var j = 0; j < 3; j++){
             var mesh  = new THREE.Mesh(geometry, material);
             mesh.position.x = Math.random() * 80 - 2 + xOffset;
