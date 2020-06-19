@@ -1,4 +1,3 @@
-
 var xDistance = 50;
 var zDistance = 30;
 var geometry = new THREE.BoxGeometry(1,1,1);
