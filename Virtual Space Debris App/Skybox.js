@@ -41,7 +41,7 @@ function init() {
     materialArray[i].side = THREE.BackSide;
 
   // Add Skybox
-  let skyBoxGeo = new THREE.BoxGeometry(10000, 10000, 10000);
+  let skyBoxGeo = new THREE.BoxGeometry(1000000, 1000000, 1000000);
   let skyBox = new THREE.Mesh(skyBoxGeo, materialArray);
   scene.add(skyBox);
 
