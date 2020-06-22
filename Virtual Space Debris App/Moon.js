@@ -27,7 +27,7 @@ scene.add( moonLight );
 //Set the moon's orbital radius, start angle, and angle increment value
 var r = -200;
 var theta = 0;
-var dTheta = 10 * Math.PI / 1000;
+var dTheta = 2 * Math.PI / 1000;
 
 //Render loop
 var render = function() {
