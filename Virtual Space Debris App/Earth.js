@@ -1,7 +1,7 @@
 // Create The Earth For Space Debris To Orbit
 
 // Create Sphere
-var geometry   = new THREE.SphereGeometry(50, 32, 32)
+var geometry   = new THREE.SphereGeometry(6371, 64, 64)
 var material  = new THREE.MeshPhongMaterial()
 var earthMesh = new THREE.Mesh( geometry, material )
 scene.add(earthMesh)
