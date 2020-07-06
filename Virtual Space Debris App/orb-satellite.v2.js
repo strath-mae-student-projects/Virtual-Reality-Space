@@ -1173,13 +1173,17 @@ var Orb = Orb || {
     xyz: function (date) {
       var time = new Orb.Time(date)
       var rect = this.ExecSGP4(time);
-      x = rect.x;
-      y = rect.y;
-      z = rect.z;
-      xdot = rect.xdot;
-      ydot = rect.ydot;
-      zdot = rect.zdot;
-      date = date;
+      return {
+        "x": rect.x,
+        "y": rect.y,
+        "z": rect.z,
+        "xdot": rect.xdot,
+        "ydot": rect.ydot,
+        "zdot": rect.zdot,
+        "date": date,
+        "coordinate_keywords": "equational rectangular",
+        "unit_keywords": "km"
+      }
     },
   
     latlng: function (date) {
