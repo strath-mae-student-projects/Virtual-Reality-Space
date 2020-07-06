@@ -25,56 +25,135 @@
   <script src="Sun.js"></script>
   <script src='orb-core.v2.js'></script>
   <script src='orb-satellite.v2.js'></script>
+  
   <script>
+
     // Update Viewport - Allows for the window to be resized without causing the scene to change
-    window.addEventListener( 'resize', function( )
-{
-    var width = window.innerWidth;
-    var height = window.innerHeight;
-    renderer.setSize( width, height );
-    camera.aspect = width/height;
-    camera.updateProjectionMatrix( );
-} );
+    window.addEventListener('resize', function () {
+      var width = window.innerWidth;
+      var height = window.innerHeight;
+      renderer.setSize(width, height);
+      camera.aspect = width / height;
+      camera.updateProjectionMatrix();
+    });
 
-var render = function(){
 
-// Take in TLE & Produce x,y,z
-const tle = {
-    "first_line":  "1 25544U 98067A   20187.34541214  .00002866  00000-0  59793-4 0  9991",
-    "second_line": "2 25544  51.6454 258.5877 0002990  76.8215 328.5773 15.49181247234835"
-  }
-  
-  const satellite = new Orb.SGP4(tle);
-  
-  window.setInterval(function(){
-  
-    let date= new Date();
-  
-    let xyz = satellite.xyz(date);
-  
-  var xArray = [x];
-  console.log('xArray =', xArray);
-  console.log('x =', x);
-  console.log('y =', y);
-  console.log('z =', z);
-  console.log('xdot =', xdot);
-  console.log('ydot =', ydot);
-  console.log('zdot =', zdot);
-  console.log('xyz =', date);
     // Create Cube
-    var geometry = new THREE.BoxGeometry(100,100,100);
-  var material = new THREE.MeshBasicMaterial({color:0x00ff44});
-  var mesh  = new THREE.Mesh(geometry, material);
-  scene.add(mesh);
+    var geometry = new THREE.BoxGeometry(100, 100, 100);
+    var material = new THREE.MeshBasicMaterial({ color: 0x00ff44 });
+    var mesh = new THREE.Mesh(geometry, material);
+    scene.add(mesh);
+    /*var render = function(){
+    
+    // Take in TLE & Produce x,y,z
+    const tle = {
+        "first_line":  "1 25544U 98067A   20187.34541214  .00002866  00000-0  59793-4 0  9991",
+        "second_line": "2 25544  51.6454 258.5877 0002990  76.8215 328.5773 15.49181247234835"
+      }
+      
+      let satelliteOriginal = new Orb.SGP4(tle);
+      let date = new Date();
+      let xyzOriginal = satelliteOriginal.xyz(date);
+      console.log('xyzOriginal =', xyzOriginal);
+    
+      let satellite = new Orb.SGP4(tle);
+      
+      window.setInterval(function(){
+      
+        let date= new Date();
+      
+        let xyz = satellite.xyz(date);
+      
+      
+      
+      console.log('x =', x);
+      console.log('y =', y);
+      console.log('z =', z);
+      console.log('xdot =', xdot);
+      console.log('ydot =', ydot);
+      console.log('zdot =', zdot);
+      console.log('xyz =', date);
+        // Create Cube
+        var geometry = new THREE.BoxGeometry(100,100,100);
+      var material = new THREE.MeshBasicMaterial({color:0x00ff44});
+      var mesh  = new THREE.Mesh(geometry, material);
+      scene.add(mesh);
+    
+      mesh.position.x = x;
+      mesh.position.y = y;
+      mesh.position.z = z;
+    
+      },1000);
+    
+    
+    }
+    render();*/
 
-  mesh.position.x = x;
-  mesh.position.y = y;
-  mesh.position.z = z;
-  },1000);
+    // Test 
+    const tle = {
+      "first_line": "1 25544U 98067A   20186.49870341  .00016717  00000-0  10270-3 0  9011",
+      "second_line": "2 25544  51.6430 262.7859 0002581  87.0839 273.0607 15.49162248 34690"
+    }
+    const satellite = new Orb.SGP4(tle);
+    let date = new Date();
+    let one_second_before = new Date(date.getTime() - 10 * 100)
+    let base = satellite.xyz(one_second_before);
+
+    console.log('x1 =', base.x);
+    console.log('y1 =', base.y);
+    console.log('z1 =', base.z);
+    console.log('xdot1 =', base.xdot);
+    console.log('ydot1 =', base.ydot);
+    console.log('zdot1 =', base.zdot);
+    console.log('Date =', base.date);
+
+    var render = function(){
+      // Create Cube
+      var geometry = new THREE.BoxGeometry(100, 100, 100);
+      var material = new THREE.MeshBasicMaterial({ color: 0x00ff44 });
+      var mesh = new THREE.Mesh(geometry, material);
+    scene.add(mesh);
+      var propogate = setInterval(function () {
+        let date2 = new Date();
+
+        let base2 = satellite.xyz(date2);
 
 
-}
-render();
+
+        console.log('x =', base2.x);
+        console.log('y =', base2.y);
+        console.log('z =', base2.z);
+        console.log('xdot =', base2.xdot);
+        console.log('ydot =', base2.ydot);
+        console.log('zdot =', base2.zdot);
+        console.log('xyz =', base2.date);
+
+        mesh.position.x = base.x + (base2.x - base.x);
+        mesh.position.y = base.y + (base2.y - base.y);
+        mesh.position.z = base.z + (base2.z - base.z);
+      }, 1000);
+      propogate();
+      
+      
+
+
+    /*const satellite2 = new Orb.SGP4(tle);
+    let date2 = new Date();
+    let base2 = satellite.xyz(date2);
+
+    console.log('x2 =', base2.x);
+    console.log('y2 =', base2.y);
+    console.log('z2 =', base2.z);
+    console.log('xdot2 =', base2.xdot);
+    console.log('ydot2 =', base2.ydot);
+    console.log('zdot2 =', base2.zdot);
+    console.log('xyz2 =', base2.date);
+
+    mesh.position.x = base.x + (base2.x - base.x);
+    mesh.position.y = base.y + (base2.y - base.y);
+    mesh.position.z = base.z + (base2.z - base.z);*/
+    }
+    render();
   </script>
 
 </body>
