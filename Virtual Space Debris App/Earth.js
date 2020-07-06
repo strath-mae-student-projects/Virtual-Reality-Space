@@ -28,7 +28,7 @@ material.specular  = new THREE.Color('grey')
 function animate() 
 {
   requestAnimationFrame( animate );
-  earthMesh.rotation.y += 0.001;
+  earthMesh.rotation.y += 0.000072722;
   renderer.render( scene, camera );
 }
 animate( );
