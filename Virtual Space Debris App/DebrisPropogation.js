@@ -22,11 +22,7 @@ for (i = 0; i < 1000; i++) {
       var material = (new THREE.MeshBasicMaterial({color: 0x00FF44}));
       Debris.push (new THREE.Mesh(geometry, material));
     };
-    console.log('Satellite =', satellite);
-    console.log('geometry =', geometry);
-    console.log('material =', material);
-    console.log('Debris =', Debris);
-    
+  
     // Add Cubes To Scene
     for(j=0; j < 1000; j++){
     scene.add(Debris[j]);
@@ -45,7 +41,6 @@ for (i = 0; i < 1000; i++) {
     Debris[k].position.z = Newxyz[k].z;
     };
     Newxyz = [];
-    console.log('Newxyz:',Newxyz);
   },1000);
   propogate();
 };
