@@ -42,7 +42,6 @@ for (i = 0; i < 15000; i++) {
     };
     Newxyz = [];
   },1000);
-  propogate();
 };
 render();
   });
