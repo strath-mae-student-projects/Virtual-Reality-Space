@@ -16,7 +16,7 @@ let Newxyz = [];
 var i;
 var j;
 
-for (i = 0; i < 10000; i++) {
+for (i = 0; i < TLEs.length; i++) {
       satellite.push (new Orb.SGP4(TLEs[i]));
       var geometry = (new THREE.BoxGeometry(100,100,100));
       var material = (new THREE.MeshBasicMaterial({color: 0x00FF44}));
@@ -24,14 +24,14 @@ for (i = 0; i < 10000; i++) {
     };
   
     // Add Cubes To Scene
-    for(j=0; j < 10000; j++){
+    for(j=0; j < TLEs.length; j++){
     scene.add(Debris[j]);
     Debris[j].position.x = j*300;
     };
 
     // Orbit Propogation
     var propogate = setInterval(function (){
-    for(k=0; k < 10000; k++){
+    for(k=0; k < TLEs.length; k++){
     date = new Date();
     
     Newxyz.push(satellite[k].xyz(date));
