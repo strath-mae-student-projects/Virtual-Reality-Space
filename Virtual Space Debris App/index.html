@@ -19,10 +19,16 @@
 </body>
 
 <script type="module">
-  camera.position.set(0, 0, -10000);
   import { VRButton } from '/VRButton.js';
   document.body.appendChild( VRButton.createButton( renderer ) );
   renderer.xr.enabled = true;
+   // Set Up Camera
+  const fov = 150;
+  const aspect = 2;  // the canvas default
+  const near = 0.1;
+  const far = 50;
+  const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
+  camera.position.set(0, 0, -10000);
   renderer.setAnimationLoop( function () {
   
 renderer.render( scene, camera );
