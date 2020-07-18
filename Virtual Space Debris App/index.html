@@ -23,7 +23,7 @@
   document.body.appendChild( VRButton.createButton( renderer ) );
   renderer.xr.enabled = true;
   renderer.setAnimationLoop( function () {
-
+  camera.position.set(0, 0, -10000);
 renderer.render( scene, camera );
 
 } );
