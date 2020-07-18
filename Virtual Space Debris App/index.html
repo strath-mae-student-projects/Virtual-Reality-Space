@@ -27,14 +27,7 @@
   const far = 500000;
   const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
   camera.position.set(0, 0, -20000);
-    var user = new THREE.Group();
-user.position.set(0,0,-8000);
-camera = new THREE.PerspectiveCamera( 70, window.innerWidth / window.innerHeight, 0.1, 1000 );
-camera.position.y = 1.6;
-user.add( camera );
-scene.add(user);
-  
-  
+ 
   import { VRButton } from '/VRButton.js';
   document.body.appendChild( VRButton.createButton( renderer ) );
   renderer.xr.enabled = true;
