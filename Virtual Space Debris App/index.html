@@ -22,10 +22,10 @@
   import { VRButton } from '/VRButton.js';
   document.body.appendChild( VRButton.createButton( renderer ) );
    // Set Up Camera
-   const fov = 150;
+   const fov = 55;
   const aspect = window.innerWidth / window.innerHeight;  // the canvas default
-  const near = 0.1;
-  const far = 500000;
+  const near = 45;
+  const far = 3000000;
   const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
   camera.position.set(0, -10000, 0);
   renderer.xr.enabled = true;
