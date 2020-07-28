@@ -19,20 +19,19 @@
 </body>
 
 <script type="module">
-  // Set Up Camera
-  /*const fov = 1500;
-  const aspect =  window.innerWidth / window.innerHeight;  // the canvas default
-  const near = 0.1;
-  const far = 50000;
-  const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
-  camera.position.set(0, -8000, 0);
- 
+  /*camera.position.set(0, 0, -10000);
   import { VRButton } from '/VRButton.js';
   document.body.appendChild( VRButton.createButton( renderer ) );
+   // Set Up Camera
+   const fov = 150;
+  const aspect = 2;  // the canvas default
+  const near = 0.1;
+  const far = 50;
+  const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
+  camera.position.set(-15, -15, -15);
   renderer.xr.enabled = true;
   renderer.setAnimationLoop( function () {
-  
-renderer.render( scene, camera );
+  renderer.render( scene, camera );
 
 } );*/
 </script>
@@ -41,7 +40,6 @@ renderer.render( scene, camera );
 <script src="Scene.js"></script>
 <script src="Skybox.js"></script>
 <script src="Earth.js"></script>
-<script src="Moon.js"></script>
 <script src='orb-core.v2.js'></script>
 <script src='orb-satellite.v2.js'></script>
 <script src='DebrisPropogation.js'></script>
