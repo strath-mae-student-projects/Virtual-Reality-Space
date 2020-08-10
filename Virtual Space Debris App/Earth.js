@@ -11,7 +11,7 @@ scene.add(light);
 var geometry   = new THREE.SphereGeometry(6371, 32, 32)
 var material  = new THREE.MeshLambertMaterial()
 var earthMesh = new THREE.Mesh( geometry, material )
-earthMesh.position.set( 0, 0, 7000 )
+earthMesh.position.set( 0, 0, 15000 )
 earthMesh.rotation.x = -(Math.PI / 2);
 scene.add(earthMesh)
 
@@ -24,7 +24,7 @@ material1.map   = THREE.ImageUtils.loadTexture('/Earth/Noclouds.jpg')
 material1.side  = THREE.BackSide
 // create the mesh based on geometry and material
 var mesh  = new THREE.Mesh(geometry1, material1)
-mesh.position.set( 0, 0, 7000 )
+mesh.position.set( 0, 0, 15000 )
 scene.add(mesh)
 
 // Add Earth Texture
