@@ -20,17 +20,17 @@ var j;
 for ( i = 0; i < TLEs.length; i++ ) {
   if( TLEs[i].OBJECT_TYPE === 'ROCKET BODY' ){
     satellite.push (new Orb.SGP4(TLEs[i]));
-    var geometry = (new THREE.BoxGeometry(100,100,100));
+    var geometry = (new THREE.BoxGeometry(10,10,10));
     var material = (new THREE.MeshBasicMaterial({color: 0x00FF00 /*GREEN*/}));
     Debris.push (new THREE.Mesh(geometry, material));
   } else if( TLEs[i].OBJECT_TYPE === 'PAYLOAD' ){
     satellite.push (new Orb.SGP4(TLEs[i]));
-    var geometry = (new THREE.BoxGeometry(100,100,100));
+    var geometry = (new THREE.BoxGeometry(10,10,10));
     var material = (new THREE.MeshBasicMaterial({color: 0xFF6600 /*ORANGE*/}));
     Debris.push (new THREE.Mesh(geometry, material));
   } else if( TLEs[i].OBJECT_TYPE === 'DEBRIS' ){
     satellite.push (new Orb.SGP4(TLEs[i]));
-    var geometry = (new THREE.BoxGeometry(100,100,100));
+    var geometry = (new THREE.BoxGeometry(10,10,10));
     var material = (new THREE.MeshBasicMaterial({color: 0xFF0080 /*PURPLE*/}));
     Debris.push (new THREE.Mesh(geometry, material));
   } else{
