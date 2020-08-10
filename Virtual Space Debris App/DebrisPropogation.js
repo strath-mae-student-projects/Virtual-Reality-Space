@@ -56,7 +56,7 @@ for ( i = 0; i < TLEs.length; i++ ) {
   
     Debris[k].position.x = Newxyz[k].x;
     Debris[k].position.y = Newxyz[k].y;
-    Debris[k].position.z = Newxyz[k].z + 8000;
+    Debris[k].position.z = Newxyz[k].z + 7000;
 
     };
     Newxyz = [];
